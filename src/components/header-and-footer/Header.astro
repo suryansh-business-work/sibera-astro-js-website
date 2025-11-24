@@ -1,6 +1,7 @@
 ---
 import MobileHeader from "./MobileHeader.astro";
 import { menuData } from "./data/menu-data";
+import MegaMenu from "./MegaMenu.astro";
 ---
 
 <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50" style="height:64px;">
@@ -9,14 +10,15 @@ import { menuData } from "./data/menu-data";
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href="/" class="-m-1.5 p-1.5">
-        <span class="sr-only">Botify Life</span>
-        <img
-          src="https://ik.imagekit.io/esdata1/botify/botify-logo-dark.svg"
-          alt="Botify Life Logo"
-          class="h-10 mr-3"
-          style="width: 120px;"
-        />
+      <a href="/" class="-m-1.5 p-1.5 flex items-center gap-2">
+        <span class="sr-only">Sibera</span>
+        <div class="flex items-center gap-3">
+            <img src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg" alt="Sibera Logo" class="h-10 w-auto" />
+            <div class="flex flex-col justify-center">
+                <span class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans">Sibera</span>
+                <span class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5">by Exyconn</span>
+            </div>
+        </div>
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -31,8 +33,35 @@ import { menuData } from "./data/menu-data";
     </div>
     <div class="hidden lg:flex lg:gap-x-5">
       {
-        menuData.map((item, idx) =>
-          item.children ? (
+        menuData.map((item, idx) => {
+          if (item.name === "Products") {
+            return (
+              <div class="group">
+                <button
+                  type="button"
+                  class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 group-hover:text-blue-600 outline-none px-4 py-2"
+                  aria-expanded="false"
+                >
+                  {item.name}
+                  <svg
+                    class="h-5 w-5 flex-none text-gray-400 group-hover:text-blue-600 transition-transform group-hover:rotate-180"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <MegaMenu />
+              </div>
+            );
+          }
+
+          return item.children ? (
             <div class="relative">
               <button
                 id={`desktop-submenu-toggle-${idx}`}
@@ -92,12 +121,12 @@ import { menuData } from "./data/menu-data";
               {item.icon && <i class={item.icon + " mr-2"} />}
               {item.name}
             </a>
-          ),
-        )
+          );
+        })
       }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="https://app.botify.life/login" class="text-sm/6 font-semibold text-gray-900"
+      <a href="http://localhost:5173/login" class="text-sm/6 font-semibold text-gray-900"
         >Log in <span aria-hidden="true">&rarr;</span></a
       >
     </div>

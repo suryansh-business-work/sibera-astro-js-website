@@ -33,27 +33,25 @@ import HomeBannerSVG from "./HomeBannerSVG.astro";
           class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-[#232b3a] items-center gap-3 mb-10"
           style="letter-spacing: -0.01em;"
         >
-          The <span class="text-blue-500 font-bold italic">fastest</span> way to
-          automate your business
+          The <span class="text-blue-500 font-bold italic">Ultimate</span> Business
+          Management Solution
         </h1>
         <ul class="mb-6 space-y-2 text-base md:text-lg text-[#232b3a]">
           <li class="flex items-center gap-2">
             <i class="fa-solid fa-circle-check text-blue-500"></i>
             <span
-              ><b>All-in-one platform.</b> Manage, automate, and monitor all your
-              bots and agents in one place.</span
+              ><b>All-in-one platform.</b> Support, Tasks, Files, Invoices, Time Tracking, and IoT.</span
             >
           </li>
           <li class="flex items-center gap-2">
             <i class="fa-solid fa-server text-blue-500"></i>
             <span
-              ><b>Agentic AI & MCP Servers.</b> Next-gen automation with secure,
-              scalable infrastructure.</span
+              ><b>Seamless Integration.</b> Connect all your business operations in one place.</span
             >
           </li>
           <li class="flex items-center gap-2">
-            <i class="fa-solid fa-comments text-blue-400"></i>
-            <span>Chat with your bots and agents in real time.</span>
+            <i class="fa-solid fa-chart-line text-blue-400"></i>
+            <span>Real-time analytics and reporting for better decision making.</span>
           </li>
         </ul>
         <div class="mb-6">
@@ -61,29 +59,26 @@ import HomeBannerSVG from "./HomeBannerSVG.astro";
             >I want to:</span
           >
           <div class="flex flex-col md:flex-row gap-4">
-            <button
-              class="flex-1 px-6 py-4 rounded-2xl border-2 border-blue-200 bg-white text-blue-700 font-semibold shadow hover:border-blue-400 hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer flex items-center justify-center gap-2"
-              aria-label="Create Agent"
+            <a
+              href="http://localhost:5173/signup"
+              class="flex-1 px-6 py-4 rounded-2xl border-2 border-blue-200 bg-white text-blue-700 font-semibold shadow hover:border-blue-400 hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer flex items-center justify-center gap-2 text-center no-underline"
+              aria-label="Get Started"
             >
-              <i class="fa-solid fa-user-robot"></i> Create Agent
-            </button>
-            <button
-              class="flex-1 px-6 py-4 rounded-2xl border-2 border-blue-200 bg-white text-blue-700 font-semibold shadow hover:border-blue-400 hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer flex items-center justify-center gap-2"
-              aria-label="Create MCP Server"
+              <i class="fa-solid fa-rocket"></i> Get Started
+            </a>
+            <a
+              href="/contact"
+              class="flex-1 px-6 py-4 rounded-2xl border-2 border-blue-200 bg-white text-blue-700 font-semibold shadow hover:border-blue-400 hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer flex items-center justify-center gap-2 text-center no-underline"
+              aria-label="Contact Sales"
             >
-              <i class="fa-solid fa-network-wired"></i> Create MCP Server
-            </button>
-            <button
-              class="flex-1 px-6 py-4 rounded-2xl border-2 border-blue-200 bg-white text-blue-700 font-semibold shadow hover:border-blue-400 hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer flex items-center justify-center gap-2"
-              aria-label="Create Bot"
-            >
-              <i class="fa-solid fa-robot"></i> Create Bot
-            </button>
+              <i class="fa-solid fa-envelope"></i> Contact Sales
+            </a>
           </div>
         </div>
         <form
           class="flex flex-col md:flex-row gap-4 w-full max-w-lg mb-2"
           autocomplete="on"
+          action="http://localhost:5173/signup"
         >
           <label class="sr-only">Email</label>
           <input
@@ -97,13 +92,13 @@ import HomeBannerSVG from "./HomeBannerSVG.astro";
           <button
             type="submit"
             class="px-8 py-3 rounded-2xl bg-blue-600 text-white font-bold shadow hover:bg-blue-700 transition cursor-pointer"
-            aria-label="Get Started"
+            aria-label="Start Free Trial"
           >
-            Get Started
+            Start Free Trial
           </button>
         </form>
         <div class="flex items-center gap-2 mt-2 text-[#232b3a]">
-          <span>Or get started with</span>
+          <span>Or sign up with</span>
           <button
             class="rounded-full bg-white border border-blue-200 shadow p-2 hover:bg-blue-50 transition cursor-pointer"
             aria-label="Sign in with Google"
@@ -114,12 +109,10 @@ import HomeBannerSVG from "./HomeBannerSVG.astro";
       </div>
     </div>
     <div class="w-full flex justify-center items-start mb-8 relative z-20">
-      <img
-        src="https://ik.imagekit.io/esdata1/sibera/website/Chatbot.svg?updatedAt=1713627765282"
-        alt="Chatbot Illustration"
-        class="max-w-full h-auto"
-        loading="lazy"
-      />
+      <!-- Placeholder for Dashboard Image -->
+      <div class="w-full h-64 md:h-96 bg-white rounded-2xl shadow-xl flex items-center justify-center border border-blue-100">
+          <span class="text-gray-400 font-medium">Dashboard Preview</span>
+      </div>
     </div>
   </div>
 </section>

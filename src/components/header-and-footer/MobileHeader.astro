@@ -1,5 +1,9 @@
 ---
 import { menuData } from "./data/menu-data";
+import { getAppsByCategory } from "../../data/apps-data";
+
+const appsByCategory = getAppsByCategory();
+const categories = Object.keys(appsByCategory);
 ---
 
 <div>
@@ -10,14 +14,19 @@ import { menuData } from "./data/menu-data";
       class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
     >
       <div class="flex items-center justify-between">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Botify.life</span>
-          <img
-            src="./botify-logo-dark.svg"
-            alt="Botify Life Logo"
-            class="h-10 mr-3"
-            style="width: 120px;"
-          />
+        <a href="/" class="-m-1.5 p-1.5">
+          <span class="sr-only">Sibera</span>
+          <div class="flex items-center gap-3">
+            <img
+                src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
+                alt="Sibera Logo"
+                class="h-10 w-auto"
+            />
+            <div class="flex flex-col justify-center">
+                <span class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans">Sibera</span>
+                <span class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5">by Exyconn</span>
+            </div>
+          </div>
         </a>
         <button
           id="mobile-menu-close"
@@ -44,56 +53,118 @@ import { menuData } from "./data/menu-data";
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
-            {menuData.map((item, idx) => item.children ? (
-              <div>
-                <button
-                  type="button"
-                  class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  aria-controls={`submenu-${idx}`}
-                  aria-expanded="false"
-                  id={`submenu-toggle-${idx}`}
+            {menuData.map((item, idx) => {
+              if (item.name === "Products") {
+                return (
+                  <div>
+                    <button
+                      type="button"
+                      class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                      aria-controls="mobile-products-submenu"
+                      aria-expanded="false"
+                      id="mobile-products-toggle"
+                    >
+                      {item.name}
+                      <svg
+                        class="size-5 flex-none transition-transform ml-auto"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        data-slot="icon"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                    <div class="mt-2 space-y-2 hidden pl-4" id="mobile-products-submenu">
+                      {categories.map((category, catIdx) => (
+                        <div class="border-l-2 border-gray-100 pl-2">
+                          <button
+                            type="button"
+                            class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                            aria-controls={`mobile-category-${catIdx}`}
+                            aria-expanded="false"
+                            id={`mobile-category-toggle-${catIdx}`}
+                          >
+                            {category}
+                            <svg
+                                class="size-4 flex-none transition-transform ml-auto text-gray-400"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                          </button>
+                          <div class="mt-1 space-y-1 hidden pl-2" id={`mobile-category-${catIdx}`}>
+                            {appsByCategory[category].map(app => (
+                                <a
+                                    href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, '-')}`}
+                                    class="block rounded-lg py-2 pl-3 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                                >
+                                    {app.appName}
+                                </a>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return item.children ? (
+                <div>
+                  <button
+                    type="button"
+                    class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    aria-controls={`submenu-${idx}`}
+                    aria-expanded="false"
+                    id={`submenu-toggle-${idx}`}
+                  >
+                    {item.icon && <i class={item.icon + " mr-2"}></i>}
+                    {item.name}
+                    <svg
+                      class="size-5 flex-none transition-transform ml-auto"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      data-slot="icon"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <div class="mt-2 space-y-2 hidden" id={`submenu-${idx}`}>
+                    {item.children.map(child => (
+                      <a
+                        href={child.href}
+                        class="cursor-pointer block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-200 hover:w-full hover:no-underline hover:no-underline"
+                        style="display: block;"
+                      >
+                        {child.icon && <i class={child.icon + " mr-2"}></i>}
+                        {child.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  href={item.href}
+                  class="block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 no-underline hover:no-underline"
                 >
                   {item.icon && <i class={item.icon + " mr-2"}></i>}
                   {item.name}
-                  <svg
-                    class="size-5 flex-none transition-transform"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </button>
-                <div class="mt-2 space-y-2 hidden" id={`submenu-${idx}`}>
-                  {item.children.map(child => (
-                    <a
-                      href={child.href}
-                      class="cursor-pointer block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-200 hover:w-full hover:no-underline hover:no-underline"
-                      style="display: block;"
-                    >
-                      {child.icon && <i class={child.icon + " mr-2"}></i>}
-                      {child.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <a
-                href={item.href}
-                class="block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 no-underline hover:no-underline"
-              >
-                {item.icon && <i class={item.icon + " mr-2"}></i>}
-                {item.name}
-              </a>
-            ))}
+                </a>
+              );
+            })}
           </div>
           <div class="py-6">
             <a
-              href="https://app.botify.life/login"
+              href="http://localhost:5173/login"
               class="block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 no-underline hover:no-underline"
             >Log in</a>
           </div>
@@ -126,7 +197,33 @@ import { menuData } from "./data/menu-data";
       });
     }
 
-    // Submenu open/close logic
+    // Helper to toggle visibility and rotate arrow
+    const toggleMenu = (btnId, menuId) => {
+        const btn = document.getElementById(btnId);
+        const menu = document.getElementById(menuId);
+        if(!btn || !menu) return;
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", !expanded);
+            menu.classList.toggle("hidden");
+            const arrow = btn.querySelector("svg");
+            if (arrow) arrow.classList.toggle("rotate-180");
+        });
+    };
+
+    // Toggle for main Products menu
+    toggleMenu('mobile-products-toggle', 'mobile-products-submenu');
+
+    // Toggle for each category
+    document.querySelectorAll('[id^="mobile-category-toggle-"]').forEach(btn => {
+        const id = btn.id;
+        const targetId = id.replace('toggle', ''); // mobile-category-X
+        toggleMenu(id, targetId);
+    });
+
+    // Existing Submenu open/close logic for other items
     document.querySelectorAll('[id^="submenu-toggle-"]').forEach((btn) => {
       btn.addEventListener("click", function () {
         const idx = this.id.replace("submenu-toggle-", "");

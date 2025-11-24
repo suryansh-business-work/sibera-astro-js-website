@@ -1,0 +1,29 @@
+import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DxVpntjF.mjs';
+import 'kleur/colors';
+import { $ as $$Page } from '../chunks/Page_DeKniRRT.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Contact = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Page", $$Page, { "title": "Contact | Sibera", "description": "Contact Sibera for questions, feedback, or support.", "pageUrl": "/contact" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="bg-gradient-to-b from-indigo-50 to-white min-h-screen pt-10 pb-12 px-4"> <section class="max-w-7xl mx-auto rounded-2xl bg-white shadow-lg p-8 mt-8"> <h1 class="text-3xl font-bold text-gray-900 mb-2 text-left">
+How can we help you?
+</h1> <div class="mb-8"> <input type="text" placeholder="Type keywords to find answers" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none text-base shadow-sm"> </div> <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-4"> <div> <h2 class="text-lg font-semibold text-gray-900 mb-1">Not what you were looking for?</h2> <p class="text-gray-600 text-sm">Browse through all of our Help Center articles</p> </div> <a href="#" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium shadow hover:bg-blue-700 transition">Get started</a> </div> <div class="grid md:grid-cols-2 gap-12"> <div> <h2 class="text-lg font-semibold text-gray-900 mb-4">Points of contact</h2> <div class="mb-4"> <div class="font-medium text-gray-700">Information & Sales</div> <a href="mailto:sales@sibera.com" class="text-blue-700 text-sm hover:underline">sales@sibera.com</a> </div> <div class="mb-4"> <div class="font-medium text-gray-700">Support</div> <a href="mailto:support@sibera.com" class="text-blue-700 text-sm hover:underline">support@sibera.com</a> </div> <div class="mb-4"> <div class="font-medium text-gray-700">Verification of Employment</div> <a href="mailto:hr@sibera.com" class="text-blue-700 text-sm hover:underline">hr@sibera.com</a> </div> </div> <div> <h2 class="text-2xl font-bold text-gray-900 mb-6">Still need help?</h2> <form class="space-y-6 bg-gray-50 rounded-xl border border-gray-100 p-6 shadow-sm" name="contact" method="POST" data-netlify="true"> <input type="hidden" name="form-name" value="contact"> <div> <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+Your email address <span class="text-xs text-gray-400">(So we can reply to you)</span> </label> <input type="email" id="email" name="email" required placeholder="name@sibera.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none" autocomplete="email"> </div> <div> <label for="topic" class="block text-sm font-medium text-gray-700 mb-1">Topic</label> <select id="topic" name="topic" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"> <option value="">Select a topic</option> <option value="billing">Billing & Plans</option> <option value="usage">Using Sibera</option> <option value="content">Features</option> <option value="support">Support</option> <option value="other">Other</option> </select> </div> <div> <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label> <input type="text" id="subject" name="subject" required placeholder="Let us know how we can help you" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"> </div> <div> <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your message</label> <textarea id="message" name="message" rows="5" required placeholder="Leave a comment..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none resize-vertical"></textarea> </div> <div class="text-xs text-gray-500">
+By submitting this form, you confirm that you have read and agree to our <a href="/policies/terms" class="text-blue-700 hover:underline">Terms of Service</a> and <a href="/policies/privacy" class="text-blue-700 hover:underline">Privacy Statement</a>.
+</div> <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-400">
+Send message
+</button> </form> </div> </div> </section> </main> ` })}`;
+}, "C:/Users/Suryansh/Desktop/Projects/Sibera/sibera-astro-js-website/src/pages/contact.astro", void 0);
+
+const $$file = "C:/Users/Suryansh/Desktop/Projects/Sibera/sibera-astro-js-website/src/pages/contact.astro";
+const $$url = "/contact";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Contact,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

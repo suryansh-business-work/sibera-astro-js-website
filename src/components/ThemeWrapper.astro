@@ -1,0 +1,40 @@
+---
+import { getThemeByCategory } from '../data/app-themes';
+
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+const theme = getThemeByCategory(category);
+---
+
+<div class="theme-wrapper">
+  <slot />
+</div>
+
+<style define:vars={{ 
+  'theme-bg': theme.backgroundColor, 
+  'theme-primary': theme.primaryColor,
+  'theme-text': theme.textColor
+}}>
+  .theme-wrapper {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Apply theme colors to common elements if needed, or rely on inheritance/variables */
+  :global(.theme-text-primary) {
+    color: var(--theme-primary);
+  }
+  
+  :global(.theme-bg-primary) {
+    background-color: var(--theme-primary);
+  }
+
+  :global(.theme-border-primary) {
+    border-color: var(--theme-primary);
+  }
+</style>
