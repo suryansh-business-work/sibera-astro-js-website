@@ -1,143 +1,490 @@
 ---
-import DynamicHorizontalTab from "../../components/dynamic-components/DynamicHorizontalTab.astro";
 import Page from "../../layouts/Page.astro";
-import CareerForm from "../../components/forms/ContactForm.astro";
-import DynamicSliderImageStack from "../../components/dynamic-components/DynamicSliderImageStack.astro";
 import OpenPositions from "./OpenPositions.astro";
 
-const jobs = [
+const benefits = [
   {
-    title: "AI Engineer",
-    location: "Remote / India",
-    type: "Full Time",
+    icon: "fa-solid fa-coins",
+    title: "Competitive Salary",
     description:
-      "Design, build, and deploy AI models and automation solutions for enterprise clients.",
-    requirements: [
-      "2+ years experience in AI/ML",
-      "Proficiency in Python or JavaScript",
-      "Experience with cloud platforms (AWS, Azure, GCP)",
-    ],
+      "Market-leading compensation packages with performance bonuses and equity options",
   },
   {
-    title: "Frontend Developer",
-    location: "Remote / India",
-    type: "Full Time",
-    description: "Develop modern, responsive UIs for our SaaS and AI products.",
-    requirements: [
-      "2+ years experience with React or Vue",
-      "Strong CSS/HTML skills",
-      "Experience with REST APIs",
-    ],
+    icon: "fa-solid fa-heart-pulse",
+    title: "Health & Wellness",
+    description:
+      "Comprehensive health insurance, mental health support, and wellness programs",
   },
   {
-    title: "Product Manager (AI SaaS)",
-    location: "Remote / India",
-    type: "Full Time",
+    icon: "fa-solid fa-clock",
+    title: "Flexible Schedule",
     description:
-      "Lead product strategy and execution for our AI SaaS platforms.",
-    requirements: [
-      "3+ years in product management",
-      "Experience with SaaS products",
-      "Strong communication skills",
-    ],
+      "Work-life balance with flexible hours and remote-first culture",
+  },
+  {
+    icon: "fa-solid fa-graduation-cap",
+    title: "Learning & Development",
+    description:
+      "Annual learning budget, conferences, and skill development opportunities",
+  },
+  {
+    icon: "fa-solid fa-plane-departure",
+    title: "Paid Time Off",
+    description:
+      "Generous PTO policy including vacation days, sick leave, and public holidays",
+  },
+  {
+    icon: "fa-solid fa-laptop",
+    title: "Latest Equipment",
+    description:
+      "Top-tier laptops, monitors, and tools you need to do your best work",
+  },
+];
+
+const values = [
+  {
+    title: "Innovation First",
+    description:
+      "We embrace cutting-edge technology and encourage creative problem-solving",
+    color: "#3b82f6",
+  },
+  {
+    title: "Customer Success",
+    description: "Our customers' success drives everything we do",
+    color: "#8b5cf6",
+  },
+  {
+    title: "Transparency",
+    description: "Open communication, honest feedback, and shared knowledge",
+    color: "#06b6d4",
+  },
+  {
+    title: "Continuous Growth",
+    description: "Always learning, improving, and pushing boundaries",
+    color: "#10b981",
   },
 ];
 ---
 
 <Page
-  metaTitle="Careers at Botify | AI, SaaS & Automation Jobs"
-  metaDescription="Explore open positions at Botify. Join our team of AI, SaaS, and automation experts. Apply for remote jobs in engineering, product, and more."
-  metaKeywords="careers, jobs, AI jobs, SaaS jobs, automation, remote jobs, Botify, hiring"
-  metaImage="https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg"
+  title="Careers at Sibera | Join Our Team"
+  description="Join Sibera and help build the future of business automation. Explore remote career opportunities in engineering, product, design, and more."
 >
-  <DynamicSliderImageStack
-    images={[
-      {
-        src: "https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg",
-        alt: "Teamwork at Botify",
-      },
-      {
-        src: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
-        alt: "Remote Collaboration",
-      },
-      {
-        src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-        alt: "Innovation in AI",
-      },
-      {
-        src: "https://images.pexels.com/photos/776615/pexels-photo-776615.jpeg",
-        alt: "Growth and Learning",
-      },
-      {
-        src: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
-        alt: "Diverse Team",
-      },
-      {
-        src: "https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg",
-        alt: "Creative Workspace",
-      },
-    ]}
-  />
-  <OpenPositions />
-  <CareerForm />
+  <!-- Hero Section -->
+  <section class="careers-hero" aria-labelledby="hero-heading">
+    <div class="hero-container">
+      <h1 id="hero-heading" class="hero-title">
+        Build the Future with <span class="highlight">Sibera</span>
+      </h1>
+      <p class="hero-description">
+        Join our mission to empower businesses worldwide with innovative
+        automation solutions. We're looking for passionate, talented individuals
+        to help shape the future of work.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <i class="fa-solid fa-users stat-icon"></i>
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-globe stat-icon"></i>
+          <div class="stat-number">Remote</div>
+          <div class="stat-label">First Culture</div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-briefcase stat-icon"></i>
+          <div class="stat-number">6</div>
+          <div class="stat-label">Open Positions</div>
+        </div>
+      </div>
+      <a href="#open-positions" class="hero-cta">
+        <span>View Open Positions</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </section>
 
-  <div class="text-center mt-12">
-    <p class="text-gray-600">
-      Don't see a role that fits? Email your resume to <a
-        href="mailto:careers@botify.life"
-        class="text-[#0071e3] underline">careers@botify.life</a
-      >
-    </p>
+  <!-- Our Values Section -->
+  <section class="values-section" aria-labelledby="values-heading">
+    <div class="section-container">
+      <h2 id="values-heading" class="section-title">Our Core Values</h2>
+      <p class="section-subtitle">The principles that guide everything we do</p>
+
+      <div class="values-grid">
+        {
+          values.map((value) => (
+            <div class="value-card">
+              <div
+                class="value-icon"
+                style={`background-color: ${value.color}20;`}
+              >
+                <div
+                  class="value-dot"
+                  style={`background-color: ${value.color};`}
+                />
+              </div>
+              <h3 class="value-title">{value.title}</h3>
+              <p class="value-description">{value.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section" aria-labelledby="benefits-heading">
+    <div class="section-container">
+      <h2 id="benefits-heading" class="section-title">Why Work at Sibera</h2>
+      <p class="section-subtitle">
+        We invest in our team's success and well-being
+      </p>
+
+      <div class="benefits-grid">
+        {
+          benefits.map((benefit) => (
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class={benefit.icon} />
+              </div>
+              <h3 class="benefit-title">{benefit.title}</h3>
+              <p class="benefit-description">{benefit.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions Section -->
+  <div id="open-positions">
+    <OpenPositions />
   </div>
 
-  <DynamicHorizontalTab
-    heading="Why Join Botify?"
-    tabs={[
-      {
-        label: "Why Botify",
-        description: "Our mission and vision",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">Purpose-Driven Innovation</h3>
-                <p>
-                  At Botify, we are passionate about building AI and automation solutions that empower businesses to thrive in a digital world. Our mission is to make advanced technology accessible, ethical, and impactful for organizations of all sizes.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Cutting-edge projects in AI, SaaS, and automation</li>
-                  <li>Direct impact on real-world business challenges</li>
-                  <li>Growth opportunities in a fast-scaling company</li>
-                </ul>
-              </div>`,
-      },
-      {
-        label: "Our Work Culture",
-        description: "How we work together",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">Collaborative & Inclusive</h3>
-                <p>
-                  We foster a culture of openness, respect, and continuous learning. Our remote-first team values flexibility, transparency, and work-life balance. We celebrate diversity and believe the best ideas come from empowered, happy people.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Remote-friendly and flexible schedules</li>
-                  <li>Regular team events and knowledge sharing</li>
-                  <li>Support for personal and professional growth</li>
-                </ul>
-              </div>`,
-      },
-      {
-        label: "Benefits",
-        description: "Perks & advantages",
-        content: `<div>
-                <h3 class="text-xl font-bold mb-2 text-[#0071e3]">We Invest in You</h3>
-                <p>
-                  We offer competitive compensation, health benefits, learning budgets, and the tools you need to do your best work. Your well-being and success are our priorities.
-                </p>
-                <ul class="list-disc pl-5 mt-3 text-gray-700">
-                  <li>Competitive salary & performance bonuses</li>
-                  <li>Health insurance & wellness programs</li>
-                  <li>Learning & development support</li>
-                </ul>
-              </div>`,
-      },
-    ]}
-  />
+  <!-- CTA Section -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="cta-container">
+      <h2 id="cta-heading" class="cta-title">Don't See the Right Role?</h2>
+      <p class="cta-description">
+        We're always looking for talented individuals. Send us your resume and
+        let us know how you'd like to contribute to Sibera.
+      </p>
+      <a href="mailto:careers@sibera.work" class="cta-button">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email Your Resume</span>
+      </a>
+    </div>
+  </section>
 </Page>
+
+<style>
+  /* Hero Section */
+  .careers-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .careers-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+    opacity: 0.3;
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .highlight {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 150px;
+    transition: transform 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: white;
+    color: #667eea;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-cta i {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Values Section */
+  .values-section {
+    padding: 5rem 1.5rem;
+    background: white;
+  }
+
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .value-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .value-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+  }
+
+  .value-description {
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    padding: 5rem 1.5rem;
+    background: #f8f9fa;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+  }
+
+  .benefit-description {
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: white;
+    color: #667eea;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-stats {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-card {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .values-grid,
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
