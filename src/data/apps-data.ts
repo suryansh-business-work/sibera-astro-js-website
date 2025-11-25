@@ -24,7 +24,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:24:14.124Z',
     appInternalPageLink: '/app/si-ads',
     launchState: 'coming-soon',
-    appLogo: 'si-ads.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-ads.svg'
   },
   {
     appId: '647b9860e472d3d07ece6a35',
@@ -37,7 +37,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-docs',
     creationDate: '2023-06-03T19:45:36.088Z',
     launchState: 'coming-soon',
-    appLogo: 'si-docs.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-docs.svg'
   },
   {
     appId: '64763e201213208699bcaf7e',
@@ -50,7 +50,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:19:12.890Z',
     appInternalPageLink: '/app/si-assist',
     launchState: 'coming-soon',
-    appLogo: 'si-assist.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-assist.svg'
   },
   {
     appId: '64763c2b1213208699bcaf48',
@@ -64,7 +64,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:10:51.821Z',
     appInternalPageLink: '/app/si-cms',
     launchState: 'mvp',
-    appLogo: 'si-cms.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-cms.svg'
   },
   {
     appId: '64763ea21213208699bcaf90',
@@ -77,7 +77,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:21:22.935Z',
     appInternalPageLink: '/app/si-campaign',
     launchState: 'coming-soon',
-    appLogo: 'si-campaign.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-campaign.svg'
   },
   {
     appId: '64763bd31213208699bcaf40',
@@ -90,7 +90,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:09:23.709Z',
     appInternalPageLink: '/app/si-chatbot',
     launchState: 'coming-soon',
-    appLogo: 'si-chatbot.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-chatbot.svg'
   },
   {
     appId: '64763ece1213208699bcaf94',
@@ -103,7 +103,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:22:06.360Z',
     appInternalPageLink: '/app/si-client-end',
     launchState: 'coming-soon',
-    appLogo: 'si-client-end.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-client-end.svg'
   },
   {
     appId: '647575201213208699bcaddc',
@@ -116,7 +116,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:01:36.609Z',
     appInternalPageLink: '/app/si-communication',
     launchState: 'mvp',
-    appLogo: 'si-communication.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-communication.svg'
   },
   {
     appId: '64783b72eb7a3c01e57b7cb4',
@@ -129,7 +129,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-data-plus',
     creationDate: '2023-06-01T06:32:18.691Z',
     launchState: 'mvp',
-    appLogo: 'si-file-manager.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-file-manager.svg'
   },
   {
     appId: '64763f721213208699bcafa8',
@@ -142,7 +142,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:24:50.348Z',
     appInternalPageLink: '/app/si-deals',
     launchState: 'coming-soon',
-    appLogo: 'si-deals.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-deals.svg'
   },
   {
     appId: '64763e851213208699bcaf8c',
@@ -155,7 +155,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:20:53.092Z',
     appInternalPageLink: '/app/si-delivery',
     launchState: 'coming-soon',
-    appLogo: 'si-delivery.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-delivery.svg'
   },
   {
     appId: '64763c8a1213208699bcaf50',
@@ -169,7 +169,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:12:26.621Z',
     appInternalPageLink: '/app/si-docs',
     launchState: 'coming-soon',
-    appLogo: 'si-docs.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-docs.svg'
   },
   {
     appId: '64775e8540cc60928c10edec',
@@ -182,7 +182,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/expense-tracker',
     creationDate: '2023-05-31T14:49:41.864Z',
     launchState: 'coming-soon',
-    appLogo: 'si-finance-n-account.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-finance-n-account.svg'
   },
   {
     appId: '64763c671213208699bcaf4c',
@@ -195,7 +195,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:11:51.464Z',
     appInternalPageLink: '/app/si-file-manager',
     launchState: 'mvp',
-    appLogo: 'si-file-manager.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-file-manager.svg'
   },
   {
     appId: '64763df31213208699bcaf76',
@@ -208,7 +208,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:18:27.306Z',
     appInternalPageLink: '/app/si-finance-n-account',
     launchState: 'coming-soon',
-    appLogo: 'si-finance-n-account.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-finance-n-account.svg'
   },
   {
     appId: '64763faf1213208699bcafb2',
@@ -221,7 +221,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:25:51.680Z',
     appInternalPageLink: '/app/si-forecast',
     launchState: 'coming-soon',
-    appLogo: 'si-forecast.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-forecast.svg'
   },
   {
     appId: '6475753d1213208699bcade0',
@@ -234,7 +234,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:02:05.423Z',
     appInternalPageLink: '/app/si-form',
     launchState: 'mvp',
-    appLogo: 'si-form.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg'
   },
   {
     appId: '64763dcf1213208699bcaf72',
@@ -247,7 +247,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:17:51.127Z',
     appInternalPageLink: '/app/si-hr',
     launchState: 'coming-soon',
-    appLogo: 'si-hr.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-hr.svg'
   },
   {
     appId: '64763daf1213208699bcaf6e',
@@ -260,7 +260,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:17:19.221Z',
     appInternalPageLink: '/app/si-hiring',
     launchState: 'coming-soon',
-    appLogo: 'si-hiring.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-hiring.svg'
   },
   {
     appId: '64763e6a1213208699bcaf88',
@@ -273,7 +273,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:20:26.228Z',
     appInternalPageLink: '/app/si-hospital',
     launchState: 'coming-soon',
-    appLogo: 'si-hospital.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-hospital.svg'
   },
   {
     appId: '64763d491213208699bcaf63',
@@ -286,7 +286,7 @@ export const allApps: AppData[] = [
     creationDate: '2024-01-15T10:00:00.000Z',
     appInternalPageLink: '/app/si-invoice',
     launchState: 'mvp',
-    appLogo: 'si-invoice.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-invoice.svg'
   },
   {
     appId: '64763t491213208699bcaf64',
@@ -299,7 +299,7 @@ export const allApps: AppData[] = [
     creationDate: '2024-01-20T10:00:00.000Z',
     appInternalPageLink: '/app/si-time-tracker',
     launchState: 'mvp',
-    appLogo: 'si-time-tracker.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-time-tracker.svg'
   },
   {
     appId: '64763fef1213208699bcafba',
@@ -313,7 +313,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:26:55.297Z',
     appInternalPageLink: '/app/si-iot',
     launchState: 'mvp',
-    appLogo: 'si-iot.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-iot.svg'
   },
   {
     appId: '64763f2c1213208699bcafa0',
@@ -326,7 +326,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:23:40.224Z',
     appInternalPageLink: '/app/si-journey',
     launchState: 'coming-soon',
-    appLogo: 'si-journey.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-journey.svg'
   },
   {
     appId: '64763d491213208699bcaf62',
@@ -339,7 +339,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:15:37.990Z',
     appInternalPageLink: '/app/si-link',
     launchState: 'mvp',
-    appLogo: 'si-link.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-link.svg'
   },
   {
     appId: '64763d1a1213208699bcaf5e',
@@ -352,7 +352,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:14:50.151Z',
     appInternalPageLink: '/app/si-meet',
     launchState: 'coming-soon',
-    appLogo: 'si-meet.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-meet.svg'
   },
   {
     appId: '6476400e1213208699bcafbe',
@@ -365,7 +365,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:27:26.604Z',
     appInternalPageLink: '/app/si-pos',
     launchState: 'coming-soon',
-    appLogo: 'si-pos.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-pos.svg'
   },
   {
     appId: '64763d711213208699bcaf66',
@@ -378,7 +378,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:16:17.438Z',
     appInternalPageLink: '/app/si-payroll',
     launchState: 'coming-soon',
-    appLogo: 'si-payroll.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-payroll.svg'
   },
   {
     appId: '64763d941213208699bcaf6a',
@@ -391,7 +391,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:16:52.359Z',
     appInternalPageLink: '/app/si-performance',
     launchState: 'coming-soon',
-    appLogo: 'si-performance.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-performance.svg'
   },
   {
     appId: '64763fce1213208699bcafb6',
@@ -404,7 +404,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:26:22.403Z',
     appInternalPageLink: '/app/si-real-estate',
     launchState: 'coming-soon',
-    appLogo: 'si-real-estate.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-real-estate.svg'
   },
   {
     appId: '64763ef21213208699bcaf98',
@@ -417,7 +417,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:22:42.702Z',
     appInternalPageLink: '/app/si-reports',
     launchState: 'coming-soon',
-    appLogo: 'si-reports.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-reports.svg'
   },
   {
     appId: '64763f991213208699bcafae',
@@ -431,7 +431,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:25:29.089Z',
     appInternalPageLink: '/app/si-sales-automate',
     launchState: 'coming-soon',
-    appLogo: 'si-sales-automate.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-sales-automate.svg'
   },
   {
     appId: '64763f0f1213208699bcaf9c',
@@ -445,7 +445,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:23:11.923Z',
     appInternalPageLink: '/app/si-social',
     launchState: 'coming-soon',
-    appLogo: 'si-social.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-social.svg'
   },
   {
     appId: '64763e4e1213208699bcaf84',
@@ -458,7 +458,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:19:58.830Z',
     appInternalPageLink: '/app/si-support',
     launchState: 'mvp',
-    appLogo: 'si-support.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-support.svg'
   },
   {
     appId: '6475755e1213208699bcade4',
@@ -471,7 +471,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:02:38.668Z',
     appInternalPageLink: '/app/si-survey',
     launchState: 'coming-soon',
-    appLogo: 'si-survey.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-survey.svg'
   },
   {
     appId: '64763cae1213208699bcaf56',
@@ -484,7 +484,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T18:13:02.010Z',
     appInternalPageLink: '/app/si-tasks',
     launchState: 'mvp',
-    appLogo: 'si-tasks.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-tasks.svg'
   },
   {
     appId: '6475759c1213208699bcadec',
@@ -497,7 +497,7 @@ export const allApps: AppData[] = [
     creationDate: '2023-05-30T04:03:40.842Z',
     appInternalPageLink: '/app/si-track',
     launchState: 'coming-soon',
-    appLogo: 'si-track.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-track.svg'
   },
   {
     appId: '64783b4deb7a3c01e57b7cb0',
@@ -510,7 +510,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-wise-learn',
     creationDate: '2023-06-01T06:31:41.619Z',
     launchState: 'coming-soon',
-    appLogo: 'si-form.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg'
   },
   {
     appId: '64783b4deb7a3c01e57b7cb0',
@@ -523,7 +523,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-hospital',
     creationDate: '2023-06-01T06:31:41.619Z',
     launchState: 'mvp',
-    appLogo: 'si-healthcare.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-healthcare.svg'
   },
   {
     appId: '64783b4deb7a3c01e57b7cb0',
@@ -536,7 +536,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-contracts',
     creationDate: '2023-06-01T06:31:41.619Z',
     launchState: 'coming-soon',
-    appLogo: 'si-form.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg'
   },
   {
     appId: '64783b4deb7a3c01e57b7cb0',
@@ -549,7 +549,7 @@ export const allApps: AppData[] = [
     appInternalPageLink: '/app/si-contracts',
     creationDate: '2023-06-01T06:31:41.619Z',
     launchState: 'coming-soon',
-    appLogo: 'si-form.svg'
+    appLogo: 'https://ik.imagekit.io/esdata1/sibera/logo/sibera-icons/si-form.svg'
   }
 ];
 

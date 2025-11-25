@@ -1,6 +1,6 @@
 import { c as createComponent, f as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_DxVpntjF.mjs';
 import 'kleur/colors';
-import { $ as $$Page } from '../../chunks/Page_DYKitdiO.mjs';
+import { $ as $$Page } from '../../chunks/Page_2SQK7YvS.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Data = createComponent(($$result, $$props, $$slots) => {

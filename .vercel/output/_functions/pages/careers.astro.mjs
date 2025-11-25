@@ -2,7 +2,7 @@ import { c as createComponent, b as createAstro, r as renderTemplate, a as addAt
 import 'kleur/colors';
 import 'clsx';
 /* empty css                                 */
-import { $ as $$Page } from '../chunks/Page_DYKitdiO.mjs';
+import { $ as $$Page } from '../chunks/Page_2SQK7YvS.mjs';
 import { $ as $$OpenPositions } from '../chunks/OpenPositions_C16abFtG.mjs';
 export { renderers } from '../renderers.mjs';
 

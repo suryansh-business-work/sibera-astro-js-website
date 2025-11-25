@@ -29,11 +29,21 @@ const { productHeader } = Astro.props;
       <a href="/" class="-m-1.5 p-1.5 flex items-center gap-2">
         <span class="sr-only">Sibera</span>
         <div class="flex items-center gap-3">
-            <img src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg" alt="Sibera Logo" class="h-10 w-auto" />
-            <div class="flex flex-col justify-center">
-                <span class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans">Sibera</span>
-                <span class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5">by Exyconn</span>
-            </div>
+          <img
+            src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
+            alt="Sibera Logo"
+            class="h-10 w-auto"
+          />
+          <div class="flex flex-col justify-center">
+            <span
+              class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans"
+              >Sibera</span
+            >
+            <span
+              class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5"
+              >by Exyconn</span
+            >
+          </div>
         </div>
       </a>
     </div>
@@ -59,7 +69,7 @@ const { productHeader } = Astro.props;
         </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-8 lg:items-center absolute left-1/2 -translate-x-1/2">
+    <div class="hidden lg:flex lg:gap-x-8 lg:items-center absolute left-1/2">
       {
         menuData.map((item, idx) => {
           if (item.name === "Products") {
@@ -67,12 +77,14 @@ const { productHeader } = Astro.props;
               <div class="group">
                 <button
                   type="button"
-                  class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 group-hover:text-blue-600 outline-none px-4 py-2"
+                  class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 group-hover:text-blue-600 outline-none px-4 py-2 transition-colors duration-200"
                   aria-expanded="false"
+                  aria-haspopup="dialog"
+                  aria-label="Browse all products"
                 >
                   {item.name}
                   <svg
-                    class="h-5 w-5 flex-none text-gray-400 group-hover:text-blue-600 transition-transform group-hover:rotate-180"
+                    class="h-5 w-5 flex-none text-gray-400 group-hover:text-blue-600 transition-transform duration-200 group-hover:rotate-180"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -84,7 +96,7 @@ const { productHeader } = Astro.props;
                     />
                   </svg>
                 </button>
-                <MegaMenu />
+                <MegaMenu hasProductHeader={!!productHeader} />
               </div>
             );
           }
@@ -115,9 +127,12 @@ const { productHeader } = Astro.props;
                   {item.children.map((child) => (
                     <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div class="flex-auto">
-                        <a href={child.href} class="block font-semibold text-gray-900">
+                        <a
+                          href={child.href}
+                          class="block font-semibold text-gray-900"
+                        >
                           {child.name}
-                          <span class="absolute inset-0"></span>
+                          <span class="absolute inset-0" />
                         </a>
                       </div>
                     </div>
@@ -126,7 +141,10 @@ const { productHeader } = Astro.props;
               </div>
             </div>
           ) : (
-            <a href={item.href} class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+            <a
+              href={item.href}
+              class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors"
+            >
               {item.name}
             </a>
           );
@@ -134,19 +152,24 @@ const { productHeader } = Astro.props;
       }
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="/login" class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+      <a
+        href="/login"
+        class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors"
+      >
         Log in <span aria-hidden="true">&rarr;</span>
       </a>
     </div>
   </nav>
 
   <!-- 3. Product Sub-Header (Conditional) -->
-  {productHeader && (
-    <ProductSubHeader 
-        productName={productHeader.name} 
-        themeColor={productHeader.themeColor} 
-    />
-  )}
+  {
+    productHeader && (
+      <ProductSubHeader
+        productName={productHeader.name}
+        themeColor={productHeader.themeColor}
+      />
+    )
+  }
 
   <MobileHeader />
 </header>
