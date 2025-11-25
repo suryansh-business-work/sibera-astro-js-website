@@ -26,12 +26,12 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
   role="navigation"
   aria-label="Product categories and applications"
   class={`fixed inset-x-0 ${topPosition} bg-white shadow-2xl border-t-4 border-blue-600 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-[100] mega-menu`}
-  style="height: 580px;"
+  style="height: 620px;"
 >
   <div class="w-full h-full flex">
     <!-- Sidebar Navigation -->
     <aside
-      class="w-80 bg-gradient-to-b from-gray-50 to-white border-r border-gray-200 h-full overflow-y-auto py-6 flex-shrink-0"
+      class="w-72 bg-gray-50 border-r border-gray-200 h-full overflow-y-auto py-6 flex-shrink-0"
       aria-label="Product categories"
     >
       <ul class="space-y-2 px-4" role="list">
@@ -41,10 +41,10 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
             return (
               <li>
                 <button
-                  class={`category-btn w-full text-left px-5 py-4 rounded-xl border-l-4 text-base font-semibold transition-all duration-300 flex items-center justify-between group/btn ${index === 0 ? "shadow-sm" : "border-transparent text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-sm"}`}
+                  class={`category-btn w-full text-left px-4 py-3.5 rounded-lg border-l-4 text-base font-bold transition-all duration-300 flex items-center justify-between group/btn ${index === 0 ? "shadow-sm bg-white" : "border-transparent text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-sm"}`}
                   style={
                     index === 0
-                      ? `background-color: ${theme.backgroundColor}; color: ${theme.primaryColor}; border-left-color: ${theme.primaryColor};`
+                      ? `color: ${theme.primaryColor}; border-left-color: ${theme.primaryColor};`
                       : ""
                   }
                   data-category={category}
@@ -55,18 +55,8 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
                   aria-current={index === 0 ? "true" : "false"}
                   type="button"
                 >
-                  <span class="flex items-center gap-4">
-                    <span
-                      class={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 ${index === 0 ? "bg-white shadow-sm" : "border-gray-200 bg-white text-gray-500 group-hover/btn:border-gray-300 group-hover/btn:text-gray-700 group-hover/btn:shadow-sm"}`}
-                      style={
-                        index === 0
-                          ? `color: ${theme.primaryColor}; border-color: ${theme.primaryColor};`
-                          : ""
-                      }
-                    >
-                      {category.substring(0, 2).toUpperCase()}
-                    </span>
-                    <span class="font-semibold">{category}</span>
+                  <span class="flex items-center gap-3">
+                    <span>{category}</span>
                   </span>
                   <i
                     class={`fa-solid fa-chevron-right text-sm transition-all duration-300 ${index === 0 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover/btn:opacity-60 group-hover/btn:translate-x-0"}`}
@@ -82,7 +72,7 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
 
     <!-- Content Area -->
     <main
-      class="flex-1 h-full overflow-y-auto bg-white px-12 py-10 flex flex-col"
+      class="flex-1 h-full overflow-y-auto bg-white px-10 py-8 flex flex-col"
     >
       <div class="flex-1">
         {
@@ -96,13 +86,10 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
                 role="region"
                 aria-label={`${category} applications`}
               >
-                <div class="mb-8 pb-6 border-b-2 border-gray-100">
+                <div class="mb-8 pb-6 border-b-2 border-gray-200">
                   <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-4 mb-3">
                     {category}
-                    <span
-                      class="px-3 py-1 rounded-full text-sm font-semibold border-2"
-                      style={`background-color: ${theme.backgroundColor}; color: ${theme.primaryColor}; border-color: ${theme.primaryColor}40;`}
-                    >
+                    <span class="px-3 py-1 rounded-full text-sm font-bold bg-gray-900 text-white">
                       {apps.length} {apps.length === 1 ? "App" : "Apps"}
                     </span>
                   </h2>
@@ -112,25 +99,20 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
                   </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {apps.map((app) => (
                     <a
                       href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-")}`}
-                      class="group/card block p-5 rounded-xl border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1"
+                      class="group/card block p-5 rounded-xl border-2 border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1"
                       aria-label={`Learn more about ${app.appName}`}
                     >
                       <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
-                          <div
-                            class="w-14 h-14 rounded-xl flex items-center justify-center p-3 border-2 border-gray-100 bg-gradient-to-br from-gray-50 to-white group-hover/card:border-blue-200 group-hover/card:shadow-md transition-all duration-300"
-                            aria-hidden="true"
-                          >
-                            <img
-                              src={app.appLogo}
-                              alt=""
-                              class="w-full h-full object-contain transform group-hover/card:scale-110 transition-transform duration-300"
-                            />
-                          </div>
+                          <img
+                            src={app.appLogo}
+                            alt=""
+                            class="w-14 h-14 object-contain transform group-hover/card:scale-110 transition-transform duration-300"
+                          />
                         </div>
                         <div class="flex-1 min-w-0">
                           <h3 class="text-base font-bold text-gray-900 group-hover/card:text-blue-600 mb-1.5 transition-colors duration-300">
@@ -140,14 +122,14 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
                             {app.appDescription}
                           </p>
                           <span
-                            class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold ${app.launchState === "mvp" ? "bg-green-50 text-green-700 border border-green-200" : "bg-amber-50 text-amber-700 border border-amber-200"}`}
+                            class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold ${app.launchState === "mvp" ? "bg-green-100 text-green-700 border border-green-300" : "bg-amber-100 text-amber-700 border border-amber-300"}`}
                           >
                             <span
-                              class={`w-1.5 h-1.5 rounded-full ${app.launchState === "mvp" ? "bg-green-500" : "bg-amber-500"} animate-pulse`}
+                              class={`w-1.5 h-1.5 rounded-full ${app.launchState === "mvp" ? "bg-green-600" : "bg-amber-600"} animate-pulse`}
                               aria-hidden="true"
                             />
                             {app.launchState === "mvp"
-                              ? "Available Now"
+                              ? "Available"
                               : "Coming Soon"}
                           </span>
                         </div>
@@ -162,10 +144,10 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
       </div>
 
       <!-- View All Products Link -->
-      <div class="mt-8 pt-6 border-t-2 border-gray-100">
+      <div class="mt-8 pt-6 border-t-2 border-gray-200">
         <a
           href="/all-products"
-          class="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-base font-bold rounded-xl transition-all duration-300 w-full sm:w-auto shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
+          class="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 hover:bg-gray-800 text-white text-base font-bold rounded-xl transition-all duration-300 w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         >
           <i class="fa-solid fa-grid text-lg"></i>
           <span class="text-white">View All Products</span>
@@ -187,11 +169,11 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
     background: transparent;
   }
   .overflow-y-auto::-webkit-scrollbar-thumb {
-    background-color: #e2e8f0;
+    background-color: #e5e7eb;
     border-radius: 10px;
   }
   .overflow-y-auto:hover::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
+    background-color: #d1d5db;
   }
 
   /* Focus visible styles */
@@ -303,7 +285,6 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
       buttons.forEach((btn: any, i: any) => {
         const isActive = i === index;
         const primaryColor = btn.getAttribute("data-primary-color");
-        const bgColor = btn.getAttribute("data-bg-color");
 
         if (isActive) {
           btn.classList.remove(
@@ -313,9 +294,7 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
             "hover:text-gray-900",
             "hover:shadow-sm",
           );
-          btn.classList.add("shadow-sm");
-          // Apply active styles via inline styles for dynamic colors
-          btn.style.backgroundColor = bgColor;
+          btn.classList.add("shadow-sm", "bg-white");
           btn.style.color = primaryColor;
           btn.style.borderLeftColor = primaryColor;
 
@@ -325,10 +304,9 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
           }
         } else {
           // Reset styles
-          btn.style.backgroundColor = "";
           btn.style.color = "";
           btn.style.borderLeftColor = "";
-          btn.classList.remove("shadow-sm");
+          btn.classList.remove("shadow-sm", "bg-white");
 
           btn.classList.add(
             "border-transparent",
@@ -342,8 +320,6 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
         btn.setAttribute("aria-current", isActive ? "true" : "false");
 
         const icon = btn.querySelector("i");
-        const badge = btn.querySelector("span > span");
-
         if (icon) {
           if (isActive) {
             icon.classList.add("opacity-100", "translate-x-0");
@@ -351,34 +327,6 @@ const topPosition = hasProductHeader ? "top-[180px]" : "top-[120px]";
           } else {
             icon.classList.remove("opacity-100", "translate-x-0");
             icon.classList.add("opacity-0", "-translate-x-2");
-          }
-        }
-
-        if (badge) {
-          if (isActive) {
-            badge.classList.remove(
-              "border-gray-200",
-              "bg-white",
-              "text-gray-500",
-              "group-hover/btn:border-gray-300",
-              "group-hover/btn:text-gray-700",
-              "group-hover/btn:shadow-sm",
-            );
-            badge.classList.add("bg-white", "shadow-sm");
-            badge.style.color = primaryColor;
-            badge.style.borderColor = primaryColor;
-          } else {
-            badge.classList.remove("bg-white", "shadow-sm");
-            badge.classList.add(
-              "border-gray-200",
-              "bg-white",
-              "text-gray-500",
-              "group-hover/btn:border-gray-300",
-              "group-hover/btn:text-gray-700",
-              "group-hover/btn:shadow-sm",
-            );
-            badge.style.color = "";
-            badge.style.borderColor = "";
           }
         }
       });
