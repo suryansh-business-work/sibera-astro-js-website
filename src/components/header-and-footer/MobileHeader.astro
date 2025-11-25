@@ -4,6 +4,9 @@ import { getAppsByCategory } from "../../data/apps-data";
 
 const appsByCategory = getAppsByCategory();
 const categories = Object.keys(appsByCategory);
+
+// Get the current pathname for active link detection
+const currentPath = Astro.url.pathname;
 ---
 
 <div>
@@ -120,14 +123,22 @@ const categories = Object.keys(appsByCategory);
                             class="mt-1 space-y-1 hidden pl-2"
                             id={`mobile-category-${catIdx}`}
                           >
-                            {appsByCategory[category].map((app) => (
-                              <a
-                                href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-")}`}
-                                class="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                              >
-                                {app.appName}
-                              </a>
-                            ))}
+                            {appsByCategory[category].map((app) => {
+                              const appHref = `/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-")}`;
+                              const isActive = currentPath === appHref;
+                              return (
+                                <a
+                                  href={appHref}
+                                  class={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                                    isActive
+                                      ? "text-blue-600 bg-blue-50 font-bold"
+                                      : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                                  }`}
+                                >
+                                  {app.appName}
+                                </a>
+                              );
+                            })}
                           </div>
                         </div>
                       ))}
@@ -163,21 +174,32 @@ const categories = Object.keys(appsByCategory);
                     </svg>
                   </button>
                   <div class="mt-2 space-y-1 hidden pl-4" id={`submenu-${idx}`}>
-                    {item.children.map((child) => (
-                      <a
-                        href={child.href}
-                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                      >
-                        {child.icon && <i class={child.icon + " mr-2"} />}
-                        {child.name}
-                      </a>
-                    ))}
+                    {item.children.map((child) => {
+                      const isActive = currentPath === child.href;
+                      return (
+                        <a
+                          href={child.href}
+                          class={`block rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                            isActive
+                              ? "text-blue-600 bg-blue-50 font-bold"
+                              : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                          }`}
+                        >
+                          {child.icon && <i class={child.icon + " mr-2"} />}
+                          {child.name}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               ) : (
                 <a
                   href={item.href}
-                  class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
+                  class={`block rounded-lg px-4 py-3 text-base font-semibold transition-colors ${
+                    currentPath === item.href
+                      ? "text-blue-600 bg-blue-50 font-bold"
+                      : "text-gray-900 hover:bg-gray-100"
+                  }`}
                 >
                   {item.icon && <i class={item.icon + " mr-2"} />}
                   {item.name}

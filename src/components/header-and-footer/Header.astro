@@ -13,6 +13,9 @@ interface Props {
 }
 
 const { productHeader } = Astro.props;
+
+// Get the current pathname for active link detection
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-white relative z-50 shadow-sm">
@@ -132,26 +135,37 @@ const { productHeader } = Astro.props;
               </button>
               <div class="absolute -left-8 top-full z-10 mt-3 max-w-md overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div class="p-4">
-                  {item.children.map((child) => (
-                    <div class="group/item relative flex items-center gap-x-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 transition-colors">
-                      <div class="flex-auto">
-                        <a
-                          href={child.href}
-                          class="block font-semibold text-gray-900 hover:text-blue-600 transition-colors"
-                        >
-                          {child.name}
-                          <span class="absolute inset-0" />
-                        </a>
+                  {item.children.map((child) => {
+                    const isActive = currentPath === child.href;
+                    return (
+                      <div class="group/item relative flex items-center gap-x-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 transition-colors">
+                        <div class="flex-auto">
+                          <a
+                            href={child.href}
+                            class={`block font-semibold transition-colors ${
+                              isActive
+                                ? "text-blue-600"
+                                : "text-gray-900 hover:text-blue-600"
+                            }`}
+                          >
+                            {child.name}
+                            <span class="absolute inset-0" />
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
           ) : (
             <a
               href={item.href}
-              class="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+              class={`px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                currentPath === item.href
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
             >
               {item.name}
             </a>
@@ -163,7 +177,7 @@ const { productHeader } = Astro.props;
     <!-- Login Button -->
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a
-        href="/login"
+        href="https://sibera.work/"
         class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
       >
         Log in
