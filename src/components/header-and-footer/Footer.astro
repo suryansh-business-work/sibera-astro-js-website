@@ -2,105 +2,567 @@
 import { footerMenuData } from "./data/menu-data";
 ---
 
-<footer
-  class="w-full bg-gray-900 border-t border-gray-800"
-  aria-labelledby="footer-heading"
->
+<footer class="footer" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="max-w-7xl mx-auto px-4 py-16 space-y-12">
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div>
-        <div class="mb-4">
-          <span class="text-2xl font-bold text-white">Sibera</span>
+
+  <div class="footer-container">
+    <!-- Top Section -->
+    <div class="footer-top">
+      <!-- Company Info & Newsletter -->
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-text">Sibera</span>
+          <span class="logo-badge">Business Suite</span>
         </div>
-        <p class="max-w-xs text-gray-400">
-          Sibera empowers businesses with a comprehensive suite of tools including Support, Tasks, File Manager, Invoices, Time Tracking, and IoT integration.
+        <p class="brand-description">
+          Empowering businesses with an all-in-one platform for Support, Tasks,
+          File Management, Invoicing, Time Tracking, and IoT integration.
         </p>
-        <ul class="mt-8 flex gap-6">
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter">
+          <h3 class="newsletter-title">Stay Updated</h3>
+          <p class="newsletter-description">
+            Get the latest updates and insights delivered to your inbox.
+          </p>
+          <form class="newsletter-form" aria-label="Newsletter signup">
+            <div class="input-group">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                aria-label="Email address"
+                required
+                class="newsletter-input"
+              />
+              <button
+                type="submit"
+                class="newsletter-btn"
+                aria-label="Subscribe to newsletter"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Subscribe</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <!-- Products Section (Featured) -->
+        <div class="footer-section">
+          <h3 class="section-title">Products</h3>
+          <ul class="link-list">
+            <li>
+              <a href="/all-products" class="footer-link featured">
+                <i class="fa-solid fa-grid-2"></i>
+                All Products
+              </a>
+            </li>
+            <li><a href="/products/support" class="footer-link">Support</a></li>
+            <li><a href="/products/tasks" class="footer-link">Tasks</a></li>
+            <li>
+              <a href="/products/files" class="footer-link">File Manager</a>
+            </li>
+            <li><a href="/products/invoice" class="footer-link">Invoice</a></li>
+            <li>
+              <a href="/products/time-tracker" class="footer-link"
+                >Time Tracker</a>
+            </li>
+            <li><a href="/products/iot" class="footer-link">IoT</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Section -->
+        <div class="footer-section">
+          <h3 class="section-title">Company</h3>
+          <ul class="link-list">
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="/careers" class="footer-link">Careers</a></li>
+            <li><a href="/blog" class="footer-link">Blog</a></li>
+            <li><a href="/contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Pricing & Resources -->
+        <div class="footer-section">
+          <h3 class="section-title">Pricing & Resources</h3>
+          <ul class="link-list">
+            <li>
+              <a href="/pricing" class="footer-link featured">
+                <i class="fa-solid fa-tags"></i>
+                View Pricing
+              </a>
+            </li>
+            <li><a href="/support" class="footer-link">Help Center</a></li>
+            <li><a href="/api" class="footer-link">API Docs</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Contact & Social -->
+      <div class="footer-contact">
+        <h3 class="section-title">Contact Us</h3>
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:hello@sibera.work" class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>hello@sibera.work</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+1234567890" class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+1 (234) 567-890</span>
+            </a>
+          </li>
+          <li>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>San Francisco, CA</span>
+            </div>
+          </li>
+        </ul>
+
+        <h4 class="social-title">Follow Us</h4>
+        <ul class="social-list">
           <li>
             <a
-              href="#"
-              rel="noreferrer"
+              href="https://twitter.com/sibera"
               target="_blank"
-              class="text-gray-400 hover:text-indigo-400 transition"
-              aria-label="Facebook"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Follow us on Twitter"
             >
-              <i class="fab fa-facebook-f text-xl"></i>
+              <i class="fab fa-twitter"></i>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              rel="noreferrer"
+              href="https://linkedin.com/company/sibera"
               target="_blank"
-              class="text-gray-400 hover:text-indigo-400 transition"
-              aria-label="Instagram"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Follow us on LinkedIn"
             >
-              <i class="fab fa-instagram text-xl"></i>
+              <i class="fab fa-linkedin-in"></i>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              rel="noreferrer"
+              href="https://facebook.com/sibera"
               target="_blank"
-              class="text-gray-400 hover:text-indigo-400 transition"
-              aria-label="Twitter"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Follow us on Facebook"
             >
-              <i class="fab fa-twitter text-xl"></i>
+              <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              rel="noreferrer"
+              href="https://github.com/sibera"
               target="_blank"
-              class="text-gray-400 hover:text-indigo-400 transition"
-              aria-label="GitHub"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Follow us on GitHub"
             >
-              <i class="fab fa-github text-xl"></i>
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/sibera"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Follow us on Instagram"
+            >
+              <i class="fab fa-instagram"></i>
             </a>
           </li>
         </ul>
       </div>
-      <nav
-        class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:col-span-2"
-        aria-label="Footer Navigation"
-      >
-        {
-          footerMenuData.map((item) =>
-            item.children ? (
-              <div>
-                <h3 class="font-semibold text-gray-200 mb-3">{item.name}</h3>
-                <ul class="space-y-2">
-                  {item.children.map((child) => (
-                    <li>
-                      <a
-                        href={child.href}
-                        class="text-gray-300 block rounded px-2 py-1 transition-colors hover:text-indigo-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <div>
-                <a
-                  href={item.href}
-                  class="text-gray-300 block font-semibold mb-3 rounded px-2 py-1 transition-colors hover:text-indigo-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                >
-                  {item.name}
-                </a>
-              </div>
-            ),
-          )
-        }
-      </nav>
     </div>
-    <div class="w-full text-gray-500 text-xs text-center border-t border-gray-800 pt-8">
-      &copy; {new Date().getFullYear()} Sibera. All rights reserved. Streamline your business operations with our all-in-one platform.
+
+    <!-- Bottom Section -->
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <p class="copyright">
+          &copy; {new Date().getFullYear()} Sibera. All rights reserved.
+        </p>
+        <div class="legal-links">
+          <a href="/policies/privacy" class="legal-link">Privacy Policy</a>
+          <span class="separator">•</span>
+          <a href="/policies/terms" class="legal-link">Terms of Service</a>
+          <span class="separator">•</span>
+          <a href="/policies/cookies" class="legal-link">Cookie Policy</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    background: linear-gradient(to bottom, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    border-top: 1px solid #334155;
+    overflow-x: hidden;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 1.5rem;
+    overflow-x: hidden;
+  }
+
+  /* Top Section */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #334155;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 1.2fr 1.8fr 1fr;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Brand Section */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .logo-text {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .logo-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    white-space: nowrap;
+  }
+
+  .brand-description {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 0.938rem;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .newsletter-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-description {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+
+  .newsletter-input::placeholder {
+    color: #94a3b8;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #60a5fa;
+  }
+
+  .newsletter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Navigation */
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-nav {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 0.938rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-link {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-link:hover {
+    color: #60a5fa;
+  }
+
+  .footer-link.featured {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+
+  .footer-link.featured i {
+    font-size: 0.875rem;
+  }
+
+  /* Contact Section */
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-item i {
+    width: 1.25rem;
+    color: #60a5fa;
+    font-size: 1rem;
+  }
+
+  a.contact-item:hover {
+    color: #60a5fa;
+  }
+
+  /* Social Links */
+  .social-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 0.5rem;
+  }
+
+  .social-list {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .social-link:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Bottom Section */
+  .footer-bottom {
+    padding-top: 1.5rem;
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-legal {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .copyright {
+    color: #94a3b8;
+    font-size: 0.875rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .legal-links {
+      justify-content: flex-end;
+    }
+  }
+
+  .legal-link {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .legal-link:hover {
+    color: #60a5fa;
+  }
+
+  .separator {
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .input-group {
+      flex-direction: column;
+    }
+
+    .newsletter-input {
+      width: 100%;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .footer-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -12,10 +12,92 @@ html {
   /* Slate 50 - Dashboard background */
   color: #0f172a;
   /* Slate 900 */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @apply antialiased;
+}
+
+/* ============================================
+   GLOBAL CURSOR & ACCESSIBILITY STYLES
+   ============================================ */
+
+/* Ensure all interactive elements have pointer cursor */
+a,
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+summary,
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Disabled states should not have pointer cursor */
+button:disabled,
+[disabled],
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Remove default button styles for better consistency */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Focus styles for better accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Remove focus outline for mouse users but keep for keyboard users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure links are properly styled */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Improve tap target sizes for mobile */
+@media (max-width: 768px) {
+
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* App Theme Utilities */
@@ -25,6 +107,7 @@ body {
 
 .app-button {
   @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  cursor: pointer;
 }
 
 .app-badge {
@@ -42,4 +125,34 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Skip to main content link (for accessibility) */
+.skip-to-main {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  z-index: 9999;
+  transition: top 0.3s ease;
+}
+
+.skip-to-main:focus {
+  top: 1rem;
+}
+
+/* Smooth transitions for interactive elements */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Reset transition for elements that shouldn't animate */
+*:where(img, video, iframe, canvas, svg) {
+  transition: none;
 }

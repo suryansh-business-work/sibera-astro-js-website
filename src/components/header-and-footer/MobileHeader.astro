@@ -7,41 +7,51 @@ const categories = Object.keys(appsByCategory);
 ---
 
 <div>
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 z-200 hidden">
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 z-[200] hidden">
     <!-- Backdrop -->
-    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/30"></div>
     <div
-      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      id="mobile-menu-backdrop"
+      class="absolute inset-0 bg-black/40 backdrop-blur-sm"
     >
-      <div class="flex items-center justify-between">
-        <a href="/" class="-m-1.5 p-1.5">
+    </div>
+    <div
+      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white sm:max-w-sm shadow-2xl"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between p-6 border-b border-gray-200"
+      >
+        <a href="/" class="flex items-center gap-3">
           <span class="sr-only">Sibera</span>
-          <div class="flex items-center gap-3">
-            <img
-                src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
-                alt="Sibera Logo"
-                class="h-10 w-auto"
-            />
-            <div class="flex flex-col justify-center">
-                <span class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans">Sibera</span>
-                <span class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5">by Exyconn</span>
-            </div>
+          <img
+            src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
+            alt="Sibera Logo"
+            class="h-10 w-auto"
+          />
+          <div class="flex flex-col justify-center">
+            <span class="text-xl font-bold text-gray-900 leading-none"
+              >Sibera</span
+            >
+            <span
+              class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5"
+              >by Exyconn</span
+            >
           </div>
         </a>
         <button
           id="mobile-menu-close"
           type="button"
-          class="cursor-pointer -m-2.5 rounded-md p-2.5 text-gray-700"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 hover:bg-gray-100 transition-colors"
+          aria-label="Close menu"
         >
           <span class="sr-only">Close menu</span>
           <svg
-            class="size-6"
+            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            stroke-width="2"
             stroke="currentColor"
             aria-hidden="true"
-            data-slot="icon"
           >
             <path
               stroke-linecap="round"
@@ -50,61 +60,73 @@ const categories = Object.keys(appsByCategory);
           </svg>
         </button>
       </div>
-      <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
-          <div class="space-y-2 py-6">
-            {menuData.map((item, idx) => {
+
+      <!-- Menu Content -->
+      <div class="p-6">
+        <div class="space-y-2">
+          {
+            menuData.map((item, idx) => {
               if (item.name === "Products") {
                 return (
                   <div>
                     <button
                       type="button"
-                      class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                      class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
                       aria-controls="mobile-products-submenu"
                       aria-expanded="false"
                       id="mobile-products-toggle"
                     >
-                      {item.name}
+                      <span>{item.name}</span>
                       <svg
-                        class="size-5 flex-none transition-transform ml-auto"
+                        class="h-5 w-5 transition-transform duration-200"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
-                        data-slot="icon"
                       >
                         <path
                           fill-rule="evenodd"
                           d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                          clip-rule="evenodd"></path>
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </button>
-                    <div class="mt-2 space-y-2 hidden pl-4" id="mobile-products-submenu">
+                    <div
+                      class="mt-2 space-y-2 hidden pl-4"
+                      id="mobile-products-submenu"
+                    >
                       {categories.map((category, catIdx) => (
-                        <div class="border-l-2 border-gray-100 pl-2">
+                        <div class="border-l-2 border-gray-200 pl-3">
                           <button
                             type="button"
-                            class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                            class="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
                             aria-controls={`mobile-category-${catIdx}`}
                             aria-expanded="false"
-                            id={`mobile-category-toggle-${catIdx}`}
+                            data-category-toggle={catIdx}
                           >
-                            {category}
+                            <span>{category}</span>
                             <svg
-                                class="size-4 flex-none transition-transform ml-auto text-gray-400"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
+                              class="h-4 w-4 text-gray-400 transition-transform duration-200"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
                             >
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                              <path
+                                fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd"
+                              />
                             </svg>
                           </button>
-                          <div class="mt-1 space-y-1 hidden pl-2" id={`mobile-category-${catIdx}`}>
-                            {appsByCategory[category].map(app => (
-                                <a
-                                    href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, '-')}`}
-                                    class="block rounded-lg py-2 pl-3 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-                                >
-                                    {app.appName}
-                                </a>
+                          <div
+                            class="mt-1 space-y-1 hidden pl-2"
+                            id={`mobile-category-${catIdx}`}
+                          >
+                            {appsByCategory[category].map((app) => (
+                              <a
+                                href={`/app/${app.appSlug || app.appName.toLowerCase().replace(/\s+/g, "-")}`}
+                                class="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                              >
+                                {app.appName}
+                              </a>
                             ))}
                           </div>
                         </div>
@@ -118,34 +140,35 @@ const categories = Object.keys(appsByCategory);
                 <div>
                   <button
                     type="button"
-                    class="items-center cursor-pointer flex w-full rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
                     aria-controls={`submenu-${idx}`}
                     aria-expanded="false"
-                    id={`submenu-toggle-${idx}`}
+                    data-submenu-toggle={idx}
                   >
-                    {item.icon && <i class={item.icon + " mr-2"}></i>}
-                    {item.name}
+                    <span>
+                      {item.icon && <i class={item.icon + " mr-2"} />}
+                      {item.name}
+                    </span>
                     <svg
-                      class="size-5 flex-none transition-transform ml-auto"
+                      class="h-5 w-5 transition-transform duration-200"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden="true"
-                      data-slot="icon"
                     >
                       <path
                         fill-rule="evenodd"
                         d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                        clip-rule="evenodd"></path>
+                        clip-rule="evenodd"
+                      />
                     </svg>
                   </button>
-                  <div class="mt-2 space-y-2 hidden" id={`submenu-${idx}`}>
-                    {item.children.map(child => (
+                  <div class="mt-2 space-y-1 hidden pl-4" id={`submenu-${idx}`}>
+                    {item.children.map((child) => (
                       <a
                         href={child.href}
-                        class="cursor-pointer block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-200 hover:w-full hover:no-underline hover:no-underline"
-                        style="display: block;"
+                        class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                       >
-                        {child.icon && <i class={child.icon + " mr-2"}></i>}
+                        {child.icon && <i class={child.icon + " mr-2"} />}
                         {child.name}
                       </a>
                     ))}
@@ -154,20 +177,36 @@ const categories = Object.keys(appsByCategory);
               ) : (
                 <a
                   href={item.href}
-                  class="block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 no-underline hover:no-underline"
+                  class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-100 transition-colors"
                 >
-                  {item.icon && <i class={item.icon + " mr-2"}></i>}
+                  {item.icon && <i class={item.icon + " mr-2"} />}
                   {item.name}
                 </a>
               );
-            })}
-          </div>
-          <div class="py-6">
-            <a
-              href="http://localhost:5173/login"
-              class="block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 no-underline hover:no-underline"
-            >Log in</a>
-          </div>
+            })
+          }
+        </div>
+
+        <!-- Login Button -->
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <a
+            href="http://localhost:5173/login"
+            class="flex items-center justify-center gap-2 w-full rounded-lg px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg transition-all duration-200"
+          >
+            Log in
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -181,59 +220,72 @@ const categories = Object.keys(appsByCategory);
     const closeBtn = document.getElementById("mobile-menu-close");
     const backdrop = document.getElementById("mobile-menu-backdrop");
 
+    // Open menu
     if (openBtn && menu) {
       openBtn.addEventListener("click", () => {
         menu.classList.remove("hidden");
-      });
-    }
-    if (closeBtn && menu) {
-      closeBtn.addEventListener("click", () => {
-        menu.classList.add("hidden");
-      });
-    }
-    if (backdrop && menu) {
-      backdrop.addEventListener("click", () => {
-        menu.classList.add("hidden");
+        document.body.style.overflow = "hidden";
       });
     }
 
-    // Helper to toggle visibility and rotate arrow
-    const toggleMenu = (btnId, menuId) => {
-        const btn = document.getElementById(btnId);
-        const menu = document.getElementById(menuId);
-        if(!btn || !menu) return;
-
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const expanded = btn.getAttribute("aria-expanded") === "true";
-            btn.setAttribute("aria-expanded", !expanded);
-            menu.classList.toggle("hidden");
-            const arrow = btn.querySelector("svg");
-            if (arrow) arrow.classList.toggle("rotate-180");
-        });
+    // Close menu
+    const closeMenu = () => {
+      if (menu) {
+        menu.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
     };
 
-    // Toggle for main Products menu
-    toggleMenu('mobile-products-toggle', 'mobile-products-submenu');
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeMenu);
+    }
 
-    // Toggle for each category
-    document.querySelectorAll('[id^="mobile-category-toggle-"]').forEach(btn => {
-        const id = btn.id;
-        const targetId = id.replace('toggle', ''); // mobile-category-X
-        toggleMenu(id, targetId);
+    if (backdrop) {
+      backdrop.addEventListener("click", closeMenu);
+    }
+
+    // Toggle helper function
+    const toggleSubmenu = (button, submenuId) => {
+      const submenu = document.getElementById(submenuId);
+      if (!button || !submenu) return;
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !expanded);
+        submenu.classList.toggle("hidden");
+
+        const arrow = button.querySelector("svg");
+        if (arrow) {
+          arrow.classList.toggle("rotate-180");
+        }
+      });
+    };
+
+    // Main Products toggle
+    const productsToggle = document.getElementById("mobile-products-toggle");
+    if (productsToggle) {
+      toggleSubmenu(productsToggle, "mobile-products-submenu");
+    }
+
+    // Category toggles
+    document.querySelectorAll("[data-category-toggle]").forEach((button) => {
+      const idx = button.getAttribute("data-category-toggle");
+      toggleSubmenu(button, `mobile-category-${idx}`);
     });
 
-    // Existing Submenu open/close logic for other items
-    document.querySelectorAll('[id^="submenu-toggle-"]').forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const idx = this.id.replace("submenu-toggle-", "");
-        const submenu = document.getElementById(`submenu-${idx}`);
-        const expanded = this.getAttribute("aria-expanded") === "true";
-        this.setAttribute("aria-expanded", !expanded);
-        submenu.classList.toggle("hidden");
-        // Rotate arrow
-        const arrow = this.querySelector("svg");
-        if (arrow) arrow.classList.toggle("rotate-180");
+    // Other submenu toggles
+    document.querySelectorAll("[data-submenu-toggle]").forEach((button) => {
+      const idx = button.getAttribute("data-submenu-toggle");
+      toggleSubmenu(button, `submenu-${idx}`);
+    });
+
+    // Close menu when clicking on links
+    menu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
       });
     });
   });

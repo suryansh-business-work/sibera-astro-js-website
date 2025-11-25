@@ -1,34 +1,232 @@
 ---
+
 ---
 
-<div class="bg-gray-700 text-white text-xs py-2 px-4 hidden md:block">
-  <div class="max-w-7xl mx-auto flex justify-end items-center gap-6">
-    <!-- Language Dropdown -->
-    <div class="relative group cursor-pointer flex items-center gap-1">
-      <i class="fa-solid fa-globe"></i>
-      <span>English</span>
-      <i class="fa-solid fa-chevron-down text-[10px]"></i>
-      
-      <!-- Dropdown Content -->
-      <div class="absolute right-0 top-full mt-1 w-32 bg-white text-gray-900 rounded shadow-lg hidden group-hover:block z-50">
-        <div class="py-1">
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
-        </div>
-      </div>
+<div class="topbar">
+  <div class="topbar-container">
+    <!-- Left Section: Announcement -->
+    <div class="topbar-announcement">
+      <i class="fa-solid fa-bullhorn"></i>
+      <span>New: Explore our latest IoT solutions</span>
     </div>
 
-    <a href="/contact" class="hover:text-blue-300 transition-colors">Contact Sales</a>
-    <a href="/support" class="hover:text-blue-300 transition-colors">Support</a>
-    
-    <div class="flex items-center gap-4 border-l border-slate-700 pl-4">
-        <a href="#" class="hover:text-blue-300 transition-colors flex items-center gap-1">
-            <span>My Account</span>
-            <i class="fa-solid fa-chevron-down text-[10px]"></i>
-        </a>
-        <a href="/login" class="hover:text-blue-300 transition-colors">Log in</a>
-        <button class="hover:text-blue-300 transition-colors" aria-label="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <!-- Right Section: Navigation -->
+    <div class="topbar-nav">
+      <!-- Language Selector -->
+      <div class="topbar-dropdown">
+        <button
+          class="topbar-btn"
+          aria-label="Select language"
+          aria-haspopup="true"
+        >
+          <i class="fa-solid fa-globe"></i>
+          <span>English</span>
+          <i class="fa-solid fa-chevron-down"></i>
         </button>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item">English</a>
+          <a href="#" class="dropdown-item">Español</a>
+          <a href="#" class="dropdown-item">Français</a>
+        </div>
+      </div>
+
+      <span class="topbar-divider"></span>
+
+      <!-- Quick Links -->
+      <a href="/contact" class="topbar-link">
+        <i class="fa-solid fa-headset"></i>
+        <span>Contact Sales</span>
+      </a>
+
+      <a href="/support" class="topbar-link">
+        <i class="fa-solid fa-life-ring"></i>
+        <span>Support</span>
+      </a>
     </div>
   </div>
 </div>
+
+<style>
+  .topbar {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    font-size: 0.813rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .topbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .topbar-announcement {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+
+  .topbar-announcement i {
+    color: #fbbf24;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .topbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  .topbar-divider {
+    width: 1px;
+    height: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .topbar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .topbar-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .topbar-link i {
+    font-size: 0.875rem;
+  }
+
+  .topbar-login {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .topbar-login:hover {
+    background: rgba(59, 130, 246, 0.3);
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .topbar-dropdown {
+    position: relative;
+  }
+
+  .topbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.813rem;
+    cursor: pointer;
+  }
+
+  .topbar-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .topbar-btn i:last-child {
+    font-size: 0.625rem;
+    transition: transform 0.2s ease;
+  }
+
+  .topbar-dropdown:hover .topbar-btn i:last-child {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 10rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: all 0.2s ease;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .topbar-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.625rem 1rem;
+    color: #1e293b;
+    text-decoration: none;
+    transition: background 0.15s ease;
+    cursor: pointer;
+  }
+
+  .dropdown-item:hover {
+    background: #f1f5f9;
+  }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .topbar-announcement {
+      display: flex;
+    }
+
+    .topbar-container {
+      justify-content: space-between;
+    }
+
+    .topbar-nav {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .topbar-link span,
+    .topbar-btn span {
+      display: none;
+    }
+
+    .topbar-nav {
+      gap: 0.5rem;
+    }
+
+    .topbar-divider {
+      display: none;
+    }
+  }
+</style>

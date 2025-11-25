@@ -15,50 +15,56 @@ interface Props {
 const { productHeader } = Astro.props;
 ---
 
-<header class="bg-white relative z-50">
+<header class="bg-white relative z-50 shadow-sm">
   <!-- 1. Top Bar -->
   <TopBar />
 
   <!-- 2. Main Header -->
-  <!-- 2. Main Header -->
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 border-b border-gray-100 relative"
+    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8 relative"
     aria-label="Global"
   >
+    <!-- Logo Section -->
     <div class="flex lg:flex-1">
-      <a href="/" class="-m-1.5 p-1.5 flex items-center gap-2">
+      <a
+        href="/"
+        class="flex items-center gap-3 transition-opacity hover:opacity-80"
+      >
         <span class="sr-only">Sibera</span>
-        <div class="flex items-center gap-3">
-          <img
-            src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
-            alt="Sibera Logo"
-            class="h-10 w-auto"
-          />
-          <div class="flex flex-col justify-center">
-            <span
-              class="text-xl font-bold text-gray-900 leading-none tracking-tight font-sans"
-              >Sibera</span
-            >
-            <span
-              class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5"
-              >by Exyconn</span
-            >
-          </div>
+        <img
+          src="https://ik.imagekit.io/esdata1/sibera/logo/logo-only.svg"
+          alt="Sibera Logo"
+          class="h-12 w-auto"
+        />
+        <div class="flex flex-col justify-center">
+          <span
+            class="text-2xl font-bold text-gray-900 leading-none tracking-tight"
+          >
+            Sibera
+          </span>
+          <span
+            class="text-[10px] font-semibold text-gray-500 leading-none uppercase tracking-widest mt-0.5"
+          >
+            by Exyconn
+          </span>
         </div>
       </a>
     </div>
+
+    <!-- Mobile Menu Button -->
     <div class="flex lg:hidden">
       <button
         type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 hover:bg-gray-100 transition-colors"
         id="mobile-menu-open"
+        aria-label="Open main menu"
       >
         <span class="sr-only">Open main menu</span>
         <svg
           class="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          stroke-width="2"
           stroke="currentColor"
           aria-hidden="true"
         >
@@ -69,7 +75,9 @@ const { productHeader } = Astro.props;
         </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-8 lg:items-center absolute left-1/2">
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex lg:gap-x-1 lg:items-center">
       {
         menuData.map((item, idx) => {
           if (item.name === "Products") {
@@ -77,14 +85,14 @@ const { productHeader } = Astro.props;
               <div class="group">
                 <button
                   type="button"
-                  class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 group-hover:text-blue-600 outline-none px-4 py-2 transition-colors duration-200"
+                  class="flex items-center gap-x-1.5 px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg outline-none transition-all duration-200"
                   aria-expanded="false"
                   aria-haspopup="dialog"
                   aria-label="Browse all products"
                 >
                   {item.name}
                   <svg
-                    class="h-5 w-5 flex-none text-gray-400 group-hover:text-blue-600 transition-transform duration-200 group-hover:rotate-180"
+                    class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-all duration-200 group-hover:rotate-180"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -105,12 +113,12 @@ const { productHeader } = Astro.props;
             <div class="relative group">
               <button
                 type="button"
-                class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 outline-none"
+                class="flex items-center gap-x-1.5 px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg outline-none transition-all duration-200"
                 aria-expanded="false"
               >
                 {item.name}
                 <svg
-                  class="h-5 w-5 flex-none text-gray-400"
+                  class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-all duration-200 group-hover:rotate-180"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -122,14 +130,14 @@ const { productHeader } = Astro.props;
                   />
                 </svg>
               </button>
-              <div class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="absolute -left-8 top-full z-10 mt-3 max-w-md overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div class="p-4">
                   {item.children.map((child) => (
-                    <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                    <div class="group/item relative flex items-center gap-x-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 transition-colors">
                       <div class="flex-auto">
                         <a
                           href={child.href}
-                          class="block font-semibold text-gray-900"
+                          class="block font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                         >
                           {child.name}
                           <span class="absolute inset-0" />
@@ -143,7 +151,7 @@ const { productHeader } = Astro.props;
           ) : (
             <a
               href={item.href}
-              class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors"
+              class="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
             >
               {item.name}
             </a>
@@ -151,12 +159,26 @@ const { productHeader } = Astro.props;
         })
       }
     </div>
+
+    <!-- Login Button -->
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a
         href="/login"
-        class="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors"
+        class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
       >
-        Log in <span aria-hidden="true">&rarr;</span>
+        Log in
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
       </a>
     </div>
   </nav>
