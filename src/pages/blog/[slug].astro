@@ -1,0 +1,224 @@
+---
+export const prerender = true;
+
+import Page from "../../layouts/Page.astro";
+import { blogPosts } from "../../data/blog-data";
+
+export async function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+// Get recent posts (exclude current)
+const recentPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
+// Get unique categories
+const categories = [...new Set(blogPosts.map((p) => p.category))];
+
+// Get unique tags
+const allTags = blogPosts.flatMap((p) => p.tags);
+const tags = [...new Set(allTags)];
+---
+
+<Page
+  title={`${post.title} | Botify Life`}
+  description={post.excerpt}
+  pageUrl={`/blog/${post.slug}`}
+  image={post.image}
+>
+  <main class="bg-gray-50 min-h-screen pt-24 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <article
+          class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 animate-fade-in-up"
+        >
+          <!-- Header -->
+          <header class="mb-8">
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <span
+                class="px-3 py-1 text-sm font-medium text-blue-600 bg-blue-50 rounded-full"
+              >
+                {post.category}
+              </span>
+              <time datetime={post.date} class="text-sm text-gray-500">
+                {post.displayDate}
+              </time>
+            </div>
+            <h1
+              class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+            >
+              {post.title}
+            </h1>
+
+            <!-- Featured Image -->
+            <div class="rounded-xl overflow-hidden shadow-md aspect-video mb-8">
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </header>
+
+          <!-- Content -->
+          <div class="prose prose-lg prose-blue max-w-none text-gray-700">
+            <Fragment set:html={post.content} />
+          </div>
+
+          <!-- Tags -->
+          <div class="mt-12 pt-8 border-t border-gray-100">
+            <h3
+              class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4"
+            >
+              Tags
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {
+                post.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200 transition-colors cursor-default">
+                    #{tag}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-1 space-y-8">
+          <!-- Recent Blogs -->
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 animate-fade-in-right"
+            style="animation-delay: 100ms;"
+          >
+            <h3
+              class="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-100"
+            >
+              Recent Posts
+            </h3>
+            <div class="space-y-6">
+              {
+                recentPosts.map((recent) => (
+                  <a
+                    href={`/blog/${recent.slug}`}
+                    class="group flex gap-4 items-start"
+                  >
+                    <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                      <img
+                        src={recent.image}
+                        alt={recent.title}
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-1">
+                        {recent.title}
+                      </h4>
+                      <span class="text-xs text-gray-500">
+                        {recent.displayDate}
+                      </span>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 animate-fade-in-right"
+            style="animation-delay: 200ms;"
+          >
+            <h3
+              class="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100"
+            >
+              Categories
+            </h3>
+            <ul class="space-y-2">
+              {
+                categories.map((category) => (
+                  <li>
+                    <a
+                      href="#"
+                      class="flex items-center justify-between text-gray-600 hover:text-blue-600 transition-colors py-1"
+                    >
+                      <span>{category}</span>
+                      <span class="text-xs bg-gray-100 px-2 py-0.5 rounded-full text-gray-500">
+                        {
+                          blogPosts.filter((p) => p.category === category)
+                            .length
+                        }
+                      </span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <!-- Tags Cloud -->
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 animate-fade-in-right"
+            style="animation-delay: 300ms;"
+          >
+            <h3
+              class="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100"
+            >
+              Tags
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {
+                tags.map((tag) => (
+                  <a
+                    href="#"
+                    class="px-3 py-1 bg-gray-50 text-gray-600 rounded-lg text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors border border-gray-100"
+                  >
+                    {tag}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</Page>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+</style>
