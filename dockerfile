@@ -13,6 +13,8 @@ COPY --from=node-builder /app/package-lock.json ./
 
 RUN npm ci --omit=dev
 
-EXPOSE 4321
+ENV HOST=0.0.0.0
+ENV PORT=4322
+EXPOSE 4322
 
-CMD ["node", "dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]

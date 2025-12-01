@@ -1,43 +1,66 @@
-name: botify-life Astro.js Website using docker and GitHub Actions
+name: Deploy to Server
 
 on:
   push:
     branches:
-      - main
+      - main # Auto-deploy when pushing to main branch
+  workflow_dispatch: # Allow manual deployment from GitHub
 
 jobs:
-  build-and-deploy:
+  deploy:
+    name: Deploy via SSH
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/botify-life-website:latest
-
-      - name: Deploy via SSH and Docker
-        uses: appleboy/ssh-action@v1
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/botify-life-website:latest
-            docker stop botify-life-website || true
-            docker rm botify-life-website || true
-            docker run -d --name botify-life-website -p 4322:4322 --restart=always ${{ secrets.DOCKERHUB_USERNAME }}/botify-life-website:latest
+            echo "🚀 Starting deployment..."
+
+            # Navigate to project directory
+            cd /opt/sibera-website || exit 1
+
+            # Pull latest changes
+            echo "📥 Pulling latest code..."
+            git pull origin main
+
+            # Build Docker image
+            echo "🐳 Building Docker image..."
+            docker build -t sibera-website:latest .
+
+            # Stop and remove old container
+            echo "🛑 Stopping old container..."
+            docker stop sibera-website || true
+            docker rm sibera-website || true
+
+            # Run new container
+            echo "▶️ Starting new container..."
+            docker run -d \
+              -p 7000:4322 \
+              --name sibera-website \
+              --restart unless-stopped \
+              sibera-website:latest
+
+            # Check if container is running
+            if [ "$(docker ps -q -f name=sibera-website)" ]; then
+              echo "✅ Deployment successful!"
+              docker ps -f name=sibera-website
+            else
+              echo "❌ Deployment failed!"
+              docker logs sibera-website
+              exit 1
+            fi
+
+            # Clean up old images
+            echo "🧹 Cleaning up old images..."
+            docker image prune -f
+
+            echo "🎉 Deployment complete!"
