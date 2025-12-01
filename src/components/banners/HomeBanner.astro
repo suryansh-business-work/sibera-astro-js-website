@@ -1,5 +1,5 @@
 ---
-// No imports needed
+import { appConfig } from "../../config/app-config";
 ---
 
 <section class="home-banner">
@@ -42,7 +42,7 @@
       <div class="cta-section">
         <span class="cta-label">I want to:</span>
         <div class="cta-buttons">
-          <a href="http://localhost:5173/signup" class="cta-btn cta-primary">
+          <a href={appConfig.urls.signup} class="cta-btn cta-primary">
             <i class="fa-solid fa-rocket"></i>
             Get Started
           </a>

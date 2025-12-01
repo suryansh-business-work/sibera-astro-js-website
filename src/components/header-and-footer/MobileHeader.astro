@@ -1,6 +1,7 @@
 ---
 import { menuData } from "./data/menu-data";
 import { getAppsByCategory } from "../../data/apps-data";
+import { appConfig } from "../../config/app-config";
 
 const appsByCategory = getAppsByCategory();
 const categories = Object.keys(appsByCategory);
@@ -212,7 +213,7 @@ const currentPath = Astro.url.pathname;
         <!-- Login Button -->
         <div class="mt-6 pt-6 border-t border-gray-200">
           <a
-            href="http://localhost:5173/login"
+            href={appConfig.urls.login}
             class="flex items-center justify-center gap-2 w-full rounded-lg px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg transition-all duration-200"
           >
             Log in
